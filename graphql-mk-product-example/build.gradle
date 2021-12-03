@@ -1,0 +1,38 @@
+plugins {
+	id 'org.springframework.boot' version "$LIB_SPRING_BOOT_VER"
+	id 'io.spring.dependency-management' version "$LIB_SPRING_BOOT__DEP_VER"
+	id 'java'
+}
+
+group = 'lt.mxas.springbootgraphql.products'
+
+version = PROJECT_VERSION
+sourceCompatibility = SOURCE_COMPATIBILITY
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	implementation "com.graphql-java:graphql-java:$LIB_GRAPH_QL_VER"
+	implementation "com.graphql-java:graphql-java-extended-scalars:$LIB_GRAPH_QL_SCALARS_VER"
+	implementation "com.graphql-java:graphql-java-spring-boot-starter-webmvc:$LIB_GRAPH_QL_STARTER_WEBMVC_VER"
+
+	implementation "com.graphql-java-kickstart:graphiql-spring-boot-starter:$LIB_GRAPH_QL_KICKSTART_VER"
+	implementation "com.graphql-java-kickstart:voyager-spring-boot-starter:$LIB_GRAPH_QL_KICKSTART_VER"
+}
+
+test {
+	useJUnitPlatform()
+}

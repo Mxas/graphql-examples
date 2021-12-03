@@ -1,0 +1,25 @@
+
+
+type Query {
+    findProducts: [Product]
+}
+
+type Mutation {
+    createProduct(product: ProductInput): String
+}
+
+type Subscription {
+
+    productChanges: Product
+}
+
+type Product {
+
+    name: String
+    type: String
+}
+
+input ProductInput{
+    name: String
+    type: String
+}

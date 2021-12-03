@@ -1,0 +1,20 @@
+scalar Long
+
+type Query {
+    findProducts: [Product]
+}
+
+type Mutation {
+    createProduct(product: ProductInput): Long
+}
+
+type Product {
+    id: Long
+    name: String
+    type: String
+}
+
+input ProductInput{
+    name: String
+    type: String
+}
